@@ -1,6 +1,6 @@
 # Virusc
 Requirements - python interpreter (3.6 & above) ,
-Install Python Packages - numpy , pandas , flask , newspaper3k , sklearn , flask_mysqldb.
+Install Python Packages - numpy , pandas , flask , newspaper3k , sklearn , flask_mysqldb , matplotlib .
 
 follow this steps before running the code:-
   1) Install xampp 
