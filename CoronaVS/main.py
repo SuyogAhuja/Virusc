@@ -112,6 +112,10 @@ def graph():
 
     return hospTrain.gr1()
 
+@app.route('/afterlogin')
+def afterlogin():
+    return render_template('index2.html')
+
 @app.route('/chat', methods = ['GET','POST'])
 def chat():
     if request.method=='POST':
