@@ -1,0 +1,120 @@
+{%extends "base.html" %}
+{%block content%}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.container {
+  border: 2px solid black;
+  background-color:rgb(90, 150, 219);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: black;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+
+button[type=submit]{
+    width: 10%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    background:black;
+    cursor: pointer;
+}
+button[type=submit]:hover{
+  background: #003366;
+  opacity: 0.7;
+
+
+}
+.hi {
+    width: 30%;
+    box-sizing: border-box;
+    padding: 5px 0;
+    margin-top: 5px;
+    margin-left:10px;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    color: white;
+    background:rgba(0, 0, 0, 0.527);
+    padding-left:5%;
+    padding-right:5%;
+  }
+.bye{
+  margin-top:10px;
+  padding-left:5%;
+  width:80%;
+  
+}  
+</style>
+</head>
+<body>
+
+<h2>Chat With VirusCBot</h2>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/bot1.jpg')}}" alt="Avatar" style="width:100%;">
+  <p>  VirusCBot: I am VirusCBot . I will answer your queries about COVID-19. If you want to exit, type Bye !</p>
+  
+</div>
+
+<div class="container darker">
+  <img src="{{url_for('static',filename='images/user.png')}}" alt="Avatar" class="right" style="width:100%;">
+
+  <p>
+    <form action="/chat" method="POST" >
+     <label class="hi">Enter your Question Here </label><br>
+     <input class="bye" type="text"  name="question"><br><br>
+     <button type="submit" value="Submit">Submit</button>
+    </form>
+</p>
+  
+</div>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/bot1.jpg')}}" alt="Avatar" style="width:100%;">
+  <p class="hi">Answer Here: </p>
+  <p> {{response1}}</p>
+  
+</div>
+
+
+</body>
+</html>
+
+{%endblock%}

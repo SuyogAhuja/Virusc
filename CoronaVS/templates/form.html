@@ -1,0 +1,165 @@
+{%extends "base2.html" %}
+{%block content%}
+
+<style>
+    body{
+    text-align:center;
+    background-image:url("{{url_for('static',filename='images/1.jpg')}}");
+    background-color:black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color:white;
+    }
+    .wrap{
+     color:rgb(252, 250, 248);
+     max-width:500px;
+     border-radius: 20px;
+     margin: auto;
+     background:rgba(192, 180, 180, 0.226);
+     box-sizing: border-box;
+     padding:10px;
+
+    }
+    form {
+    font-family:"Bitter";
+    font-weight:bold;
+ 	  font-size:20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+
+    padding: 10px;
+    }
+
+    button[type=submit]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    background:black;
+    cursor: pointer;
+}
+button[type=submit]:hover{
+  background: #003366;
+  opacity: 0.7;
+
+
+}
+.hi {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 0;
+    margin-top: 5px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background:rgba(0, 0, 0, 0.527);
+    padding-left:5%;
+    padding-right:5%;
+  }
+.bye{
+  margin-top:10px; 
+  padding-left:5%;
+  width:80%;
+  
+}  
+
+</style>
+
+
+
+  <h1>FIGHT CORONA</h1>
+  <h2> PATIENT FORM </h2>
+  <br>
+<div class="wrap">
+<form action="/corona" method="POST" >
+    <label class="hi">Enter First Name </label><br>
+    <input class="bye" type="text"  name="fname"><br><br>
+    <label class="hi">Enter Last Name </label><br>
+    <input class="bye" type="text"  name="lname"><br><br>
+    <label class="hi">Temperature in F </label><br>
+    <input class="bye" type="number" min="98" max="105" name="fever"><br><br>
+
+    <label class="hi" for="age">Age</label><br>
+    <input class="bye" type="number" min="0" max="100" name="age"><br>
+
+    <label class="hi">Enter State :</label><br>
+    <input list="states" name="state">
+  <datalist id="states">
+    <option value="A&N">
+    <option value="AndhraP">
+    <option value="ArunachalP">
+    <option value="Assam">
+    <option value="Bihar">
+    <option value="Chandigarh">
+    <option value="D&D">
+    <option value="Delhi">
+    <option value="Goa">
+    <option value="Guj">
+    <option value="Himachal">
+    <option value="J&K">
+    <option value="Jharkhand">
+    <option value="Ka">
+    <option value="Kerala">
+    <option value="MP">
+    <option value="MH">
+    <option value="Manipur">
+    <option value="Meghalaya">
+    <option value="Mizoram">
+    <option value="Nagaland">
+    <option value="Odisha">
+    <option value="Puducherry">
+    <option value="Punjab">
+    <option value="Sikkim">
+    <option value="TN">
+    <option value="Telangana">
+    <option value="Tripura">
+    <option value="UP">
+    <option value="UK">
+    <option value="WB">
+        
+
+  </datalist>
+
+    <p class="hi">Please select if you have Body Pain :</p>
+    <input type="radio"  name="BodyPain" value="yes" required="required">
+    <label >YES</label><br>
+    <input type="radio" name="BodyPain" value="no" required="required">
+    <label >NO</label><br>
+
+    <p class="hi">Please select if you have Travelled Abroad in the past 3 months :</p>
+    <input type="radio"  name="Travel" value="yes" required="required">
+    <label>YES</label><br>
+    <input type="radio"  name="Travel" value="no" required="required">
+    <label>NO</label><br>
+
+    <p class="hi">Please select if you have Difficulty in Breathing :</p>
+    <input type="radio"  name="DiffBreathing" value="low" required="required">
+    <label >LOW</label><br>
+    <input type="radio"  name="DiffBreathing" value="med" required="required">
+    <label >MEDIUM</label><br>
+    <input type="radio"  name="DiffBreathing" value="high" required="required">
+    <label>HIGH</label><br>
+
+    <p class="hi">Please select if you have Running Nose:</p>
+    <input type="radio"  name="Runnynose" value="yes" required="required">
+    <label >YES</label><br>
+    <input type="radio"  name="Runnynose" value="no" required="required">
+    <label>NO</label><br>
+    <br>
+    <button type="submit" value="Submit">Submit</button>
+
+
+</form>
+</div>
+
+
+{%endblock%}

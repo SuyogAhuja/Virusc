@@ -1,0 +1,105 @@
+{%extends "base.html" %}
+{%block content%}
+<style>
+    body{
+    text-align:center;
+    background-image:url("{{url_for('static',filename='images/1.jpg')}}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color:black;
+    color:white;
+    }
+    .wrap{
+     color:black;
+     max-width:500px;
+     border-radius: 20px;
+     margin: auto;
+     background:orange;
+     box-sizing: border-box;
+     padding:10px;
+
+    }
+    form {
+    font-family:"Bitter";
+ 	font-size:15px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+
+    padding: 10px;
+    }
+
+    button[type=submit]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    background:black;
+    cursor: pointer;
+}
+button[type=submit]:hover{
+  background: #003366;
+  opacity: 0.7;
+  
+
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(15, 15, 15);
+  color: white;
+}
+</style>
+
+<h1>FIGHT CORONA</h1>
+<h2> PATIENT DATABASE </h2>
+<br>
+
+<div class="wrap">
+   <p>RECORDS OF PATIENTS TO BE TESTED</p><br>
+   <p>TOTAL  CASES  =  {{length}}</p>
+   <p>TOTAL POSITIVE CASES  =  {{plength}}/ {{length}}</p>
+   <table id="customers">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>RESULT</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+      <td>{{row.0}}</td>
+      <td>{{row.1}}</td>
+      <td>{{row.2}}</td>      
+    </tr>
+    {% endfor %}
+  </table><br>
+  <form action="/graph">
+    <button type="submit" value="Submit1">VIEW REPORT</button>
+
+  </form>
+
+</div>
+{%endblock%}
